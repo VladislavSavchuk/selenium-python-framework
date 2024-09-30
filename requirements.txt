@@ -1,0 +1,13 @@
+flake8
+pycodestyle
+mypy
+ruff
+pylint
+pytest>=7.0
+selenium>=4.23
+msedge-selenium-tools==3.141.3
+webdriver-manager>=4.0
+requests~=2.31.0
+allure-pytest==2.13.5
+allure-python-commons==2.13.5
+urllib3==1.26.5
