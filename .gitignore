@@ -5,6 +5,8 @@
 # Ignore report files
 *.html
 *.xml
+**/allure-report/
+**/allure-results/
 
 __pycache__/
 *.py[cod]
