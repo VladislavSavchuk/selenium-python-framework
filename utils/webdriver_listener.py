@@ -4,11 +4,11 @@ from selenium.webdriver.support.events import AbstractEventListener
 
 
 class WebDriverListener(AbstractEventListener):
-    log_filename = datetime.datetime.now().strftime("%Y%m%d")
+    log_filename = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     logging.basicConfig(
         # log file will be created in "tests" directory. Feel free to change the path or filename
         filename=f"{log_filename}.log",
-        format="%(asctime)s: %(levelname)s: %(message)s",
+        format="%(asctime)s %(levelname)s [%(name)s] %(message)s",
         level=logging.INFO
     )
 
