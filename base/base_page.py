@@ -1,7 +1,7 @@
 """ This module contains the BasePage class which provides common
 functionalities for interacting with web pages using Selenium WebDriver.
 """
-
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -67,3 +67,11 @@ class BasePage:
     def is_element_invisible(self, locator):
         """ Checks if an element is invisible. """
         return self.wait.until(EC.invisibility_of_element_located(locator))
+
+    def is_element_present(self, locator):
+        """ Checks if an element is present on the page. """
+        try:
+            self.driver.find_element(*locator)
+            return True
+        except NoSuchElementException:
+            return False
