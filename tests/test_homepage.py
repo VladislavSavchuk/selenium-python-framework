@@ -8,7 +8,6 @@ from pages.home_page import HomePage
 logger = logging.getLogger(__name__)
 
 
-@pytest.mark.smoke
 @pytest.mark.usefixtures("setup")
 class TestHomePage:
     @allure.title("Home page: title")
@@ -35,6 +34,7 @@ class TestHomePage:
             assert ("demoblaze.com" in home_page.get_url())
             logger.info("Test URL passed")
 
+    @pytest.mark.smoke
     @allure.title("Home page: title contains - PRODUCT STORE")
     @allure.description("Check if home page of Demoblaze has correct title - PRODUCT STORE")
     def test_home_page_title(self):
@@ -47,6 +47,7 @@ class TestHomePage:
             assert ("PRODUCT STORE" in home_page.get_home_page_title())
             logger.info("Test title contains PRODUCT STORE passed")
 
+    @pytest.mark.smoke
     @allure.title("Home page: All elements exist and present")
     @allure.description("Check if home page of Demoblaze has elements exist and present")
     def test_home_page_all_elements_exist_and_present(self):
