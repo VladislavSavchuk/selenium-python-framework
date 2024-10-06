@@ -23,14 +23,16 @@ class TestLoginPage:
 
         with allure.step("Set username and password"):
             logger.info("Set username and password")
-            login_page.set_users_creds_input(username=1, password=1)
+            login_page.set_users_creds_input(username=login_creds.STANDARD_USERNAME,
+                                             password=login_creds.STANDARD_PASSWORD)
 
         with allure.step("Login"):
             logger.info("Click login button")
             login_page.login()
 
-        with allure.step("Check login"):
+        with ((allure.step("Check login"))):
             logger.info("Check login complete")
-            assert login_page.check_login_complete(username='1'), "Login is not complete"
+            assert login_page.check_login_complete(username=login_creds.STANDARD_USERNAME
+                                                   ), "Login is not complete"
             logger.info("Test login complete passed")
         
